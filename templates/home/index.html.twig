@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+ {% if users %}
+    <h2 class="mb-3">Page HomeList</h2>
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-12 col-xl-12">
+    <table class="table table-dark" align="center">
+  <tr>
+    <th>#</th>
+    <th>email</th>
+    <th>role</th>
+    <th>date</th>
+  </tr>
+    {% for user in users %}
+  <tr>
+    <td>
+    {{ user.id }}
+    </td>
+    <td>  
+      {{ user.email }}
+    </td>
+        <td>  
+      {{ user.role }}
+      </td>
+    <td>
+      {{ user.created_at | date('d/m/Y') }}
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+    </div>
+    </div>
+    </div>
+{% else %}
+    <h2 class="mb-3 mt-5">Bienvenue</h2>
+    {% if session %}
+    {{ session.email }}
+    {% endif %}
+{% endif %}
+{% endblock %} 

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block styles %}
+<link rel="stylesheet" href="../../dist/assets/css/style.css">
+{% endblock %} 
+{% block body %}
+{% if articles %} 
+<hr/>
+<h3>Page Articles</h3>
+<hr/>
+{% for article in articles %}
+<div class="card text-center">
+  <div class="card-header">
+    # {{ article.id }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+     {{ article.title }}
+    </h5>
+    <p class="card-text">{{ article.content }}</p>
+    <a href="/public/article/view/{{ article.id }}" class="btn btn-primary">Consulter</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    {{ article.createdAt | date('d/m/Y') }}
+  </div>
+</div>
+<hr/>
+{% endfor %}
+{% elseif article %}
+<h3>Page Article</h3>
+<div class="card text-center">
+  <div class="card-header">
+    # {{ article.id }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+     {{ article.title }}
+    </h5>
+    <p class="card-text">{{ article.content }}</p>
+    <a href="/public/article/modify/{{ article.id }}" class="btn btn-primary">Modifier</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    {{ article.createdAt | date('d/m/Y') }}
+  </div>
+</div>
+<hr/>
+{% else %}
+<h3 class="mt-5">Page Article</h3>
+<p class="text-danger h3 mt-5">Aucun article n'existe ...</p>
+{% endif %}
+{% endblock %}

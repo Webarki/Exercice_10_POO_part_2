@@ -1,0 +1,18 @@
+{
+  "name": "ymsmbrk/exercice_8",
+  "autoload": {
+    "psr-4": {
+      "Ymsmbrk\\Exercice_8\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Yms Wbrk",
+      "email": "mbrkyms@gmail.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "^3.7",
+    "symfony/asset": "^6.3"
+  }
+}
